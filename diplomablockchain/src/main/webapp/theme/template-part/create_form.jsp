@@ -17,14 +17,14 @@
                 <label for="">
                     Mark
                 </label>
-                <input required type="tel" name="phone"
+                <input required type="text" name="mark"
                        placeholder="5">
             </div>
             <div class="feedback__input">
                 <label for="">
                     Mark letter
                 </label>
-                <input required type="text" name="sex"
+                <input required type="text" name="markl"
                        placeholder="A">
             </div>
            
