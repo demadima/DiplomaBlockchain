@@ -80,7 +80,7 @@ public class BlockchainController {
 				Tuple6<BigInteger, String, String, String, BigInteger, String> record = adminService
 						.getHistoryRecord(BigInteger.valueOf(i)).send();
 
-				Block block = new Block(record.component3(), record.component4(), record.component5().intValue(),
+				Block block = new Block(Instant.ofEpochSecond(record.component1().longValue()),record.component3(), record.component4(), record.component5().intValue(),
 						record.component6());
 				blocks.add(block);
 			

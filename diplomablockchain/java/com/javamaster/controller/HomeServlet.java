@@ -24,7 +24,7 @@ public class HomeServlet extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
 		} else if (path.equals("/welcome")) {
 			
-			ArrayList<Block> blocks =  blockchaincontroller.showBlocks();;
+			ArrayList<Block> blocks =  blockchaincontroller.showBlocks();
 			request.setAttribute("blocks", blocks);
 			
 			request.getRequestDispatcher("/WEB-INF/view/welcome.jsp").forward(request, response);

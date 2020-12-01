@@ -1,6 +1,11 @@
 package blockchain;
 
+import java.time.Instant;
+
+import org.bouncycastle.util.test.FixedSecureRandom.BigInteger;
+
 public class Block {
+	private Instant time;
 	private String name;
 	private String surname;
 	private int mark;
@@ -9,11 +14,27 @@ public class Block {
 	public Block() {
 	}
 
+	public Block(Instant time, String name, String surname, int mark, String markl) {
+		this.time = time;
+		this.name = name;
+		this.surname = surname;
+		this.mark = mark;
+		this.markl = markl;
+	}
+	
 	public Block(String name, String surname, int mark, String markl) {
 		this.name = name;
 		this.surname = surname;
 		this.mark = mark;
 		this.markl = markl;
+	}
+
+	public Instant getTime() {
+		return time;
+	}
+
+	public void setTime(Instant time) {
+		this.time = time;
 	}
 
 	public String getName() {
