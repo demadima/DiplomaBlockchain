@@ -21,15 +21,15 @@
 			<div id="front_slider" class="col-lg-7 p-0" style="display: none">
 				
 
-						<c:forEach  var = "i" begin = "1" end = "5">
+						<c:forEach var="block" items="${blocks}">
 							<div class="card border-primary  mb-3" style="width: 45rem;">
 								<div class="card-header bg-primary text-white border-primary">Info
 									about NAME SURNAME</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-sm">First colon: "some info"</div>
-										<div class="col-sm">First colon: "some info"</div>
-										<div class="col-sm">First colon: "some info"</div>
+										<div class="col-sm">Full name: ${block.name} ${block.surname}</div>
+										<div class="col-sm">Mark: ${block.mark}</div>
+										<div class="col-sm">Mark letter: ${block.markl}</div>
 									</div>
 								</div>
 							</div>

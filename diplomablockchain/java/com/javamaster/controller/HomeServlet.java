@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import blockchain.AddData;
+import blockchain.BlockchainController;
 import blockchain.Block;
 
 public class HomeServlet extends HttpServlet {
+	private BlockchainController blockchaincontroller = new BlockchainController();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -22,8 +23,14 @@ public class HomeServlet extends HttpServlet {
 		if (path.equals("/")) {			
 			request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
 		} else if (path.equals("/welcome")) {
+			
+			ArrayList<Block> blocks =  blockchaincontroller.showBlocks();;
+			request.setAttribute("blocks", blocks);
+			
 			request.getRequestDispatcher("/WEB-INF/view/welcome.jsp").forward(request, response);
+			
 		} else if (path.equals("/create")) {
+			
 			getServletContext().getRequestDispatcher("/WEB-INF/view/create.jsp").forward(request, response);
 
 		}else  {
@@ -43,8 +50,7 @@ public class HomeServlet extends HttpServlet {
 				
 				Block block = new Block(name, surname, mark, markl);
 				
-				AddData addData=  new AddData();
-				addData.addBlock(block);
+				blockchaincontroller.addBlock(block);
 				
 				response.sendRedirect(request.getContextPath()+"/welcome");
 			} catch (Exception ex) {
