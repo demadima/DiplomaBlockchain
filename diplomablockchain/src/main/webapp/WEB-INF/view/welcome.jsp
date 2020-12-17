@@ -30,6 +30,9 @@
 										<div class="col-sm">Mark: ${block.mark}</div>
 										<div class="col-sm">Mark letter: ${block.markl}</div>
 									</div>
+									<div class="row mt-2">
+										<div class="col-sm  margin-top: 20px">Hash: ${block.hash}</div>
+									</div>
 								</div>
 							</div>
 						</c:forEach>

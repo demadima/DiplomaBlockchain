@@ -10,23 +10,34 @@ public class Block {
 	private String surname;
 	private int mark;
 	private String markl;
+	private String hash;
 
 	public Block() {
 	}
 
-	public Block(Instant time, String name, String surname, int mark, String markl) {
+	public Block(Instant time, String name, String surname, int mark, String markl , String hash) {
 		this.time = time;
 		this.name = name;
 		this.surname = surname;
 		this.mark = mark;
 		this.markl = markl;
+		this.hash = hash;
 	}
 	
-	public Block(String name, String surname, int mark, String markl) {
+	public Block(String name, String surname, int mark, String markl, String hash) {
 		this.name = name;
 		this.surname = surname;
 		this.mark = mark;
 		this.markl = markl;
+		this.hash = hash;
+	}
+
+	public String getHash() {
+		return hash;
+	}
+
+	public void setHash(String hash) {
+		this.hash = hash;
 	}
 
 	public Instant getTime() {

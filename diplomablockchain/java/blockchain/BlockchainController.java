@@ -18,6 +18,7 @@ import org.web3j.protocol.http.HttpService;
 import org.web3j.tuples.generated.Tuple3;
 import org.web3j.tuples.generated.Tuple5;
 import org.web3j.tuples.generated.Tuple6;
+import org.web3j.tuples.generated.Tuple7;
 import org.web3j.tx.gas.ContractGasProvider;
 import org.web3j.tx.gas.DefaultGasProvider;
 import org.web3j.utils.Convert;
@@ -60,8 +61,8 @@ public class BlockchainController {
 		initialization();
 
 		try {
-			adminService.createOrUpdatePassport(JOHN_ACCOUNT, block.getName(), block.getSurname(),
-					BigInteger.valueOf(block.getMark()), block.getMarkl()).send();
+			adminService.createOrUpdateData(JOHN_ACCOUNT, block.getName(), block.getSurname(),
+					BigInteger.valueOf(block.getMark()), block.getMarkl(), block.getHash()).send();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,11 +78,11 @@ public class BlockchainController {
 		
 		try {
 			for (int i = 0; i < adminService.getHistoryRecordLength().send().intValue(); i++) {
-				Tuple6<BigInteger, String, String, String, BigInteger, String> record = adminService
+				Tuple7<BigInteger, String, String, String, BigInteger, String , String> record = adminService
 						.getHistoryRecord(BigInteger.valueOf(i)).send();
 
 				Block block = new Block(Instant.ofEpochSecond(record.component1().longValue()),record.component3(), record.component4(), record.component5().intValue(),
-						record.component6());
+						record.component6(),record.component7());
 				blocks.add(block);
 			
 			}

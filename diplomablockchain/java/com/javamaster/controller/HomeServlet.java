@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import blockchain.BlockchainController;
+import blockchain.IPFSController;
 import blockchain.Block;
 
 public class HomeServlet extends HttpServlet {
 	private BlockchainController blockchaincontroller = new BlockchainController();
+	private IPFSController ipfscontrolle = new IPFSController();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -47,8 +49,11 @@ public class HomeServlet extends HttpServlet {
 				String surname = request.getParameter("surname");
 				int mark = Integer.parseInt(request.getParameter("mark"));
 				String markl = request.getParameter("markl");
+				String pathfile = request.getParameter("pathfile");
+							
+				String hash = ipfscontrolle.creatHash(pathfile);
 				
-				Block block = new Block(name, surname, mark, markl);
+				Block block = new Block(name, surname, mark, markl, hash);
 				
 				blockchaincontroller.addBlock(block);
 				

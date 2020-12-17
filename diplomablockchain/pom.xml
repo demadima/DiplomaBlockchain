@@ -14,6 +14,13 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -38,6 +45,12 @@
 			<groupId>org.web3j</groupId>
 			<artifactId>core</artifactId>
 			<version>5.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.ipfs</groupId>
+			<artifactId>java-ipfs-http-client</artifactId>
+			<version>v1.3.3</version>
 		</dependency>
 
 	</dependencies>

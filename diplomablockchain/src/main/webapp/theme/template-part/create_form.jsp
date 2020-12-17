@@ -27,11 +27,18 @@
                 <input required type="text" name="markl"
                        placeholder="A">
             </div>
+            <div class="feedback__input">
+                <label for="">
+                    Path to file
+                </label>
+                <input required type="text" name="pathfile"
+                       placeholder="D:/diplomaname.doc">
+            </div>
            
     </div>
     <div class="form__bottom">
             <button type="submit" class="feedback__btn orange-btn">
-                New Blok
+                New Block
             </button>
     </div>
 </form>
