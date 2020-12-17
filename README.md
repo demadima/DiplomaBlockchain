@@ -13,6 +13,9 @@ For starting this project:
    * Click "Deploy"
   3) Also u must have tomcat or jetty for running this web-app. (I used jetty)
 
+  4) Download the IPFS client desktop version to view and add new files to the IPFS system 
+     Link https://github.com/ipfs-shipyard/ipfs-desktop/releases
+
 That all.
 
 Thanks for looking and running my project. Good luck!
