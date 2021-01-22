@@ -6,17 +6,17 @@ contract DiplomaService {
 
     HistoryRecord[] private historyRecords;
 
-    function createOrUpdatePassport(address _owner, string memory _name, string memory _surname, uint8  _mark, string memory _markl) public {
+    function createOrUpdateData(address _owner, string memory _name, string memory _surname, uint8  _mark, string memory _markl , string memory _hash) public {
         checkAdminPermission();
-        historyRecords.push(HistoryRecord({incidentTime : now, owner : _owner, name : _name, surname : _surname , mark : _mark , markl : _markl}));
+        historyRecords.push(HistoryRecord({incidentTime : now, owner : _owner, name : _name, surname : _surname , mark : _mark , markl : _markl, hash : _hash}));
     }
 
     function getHistoryRecord(uint index) public view returns 
 
-    (uint256 incidentTime, address owner, string memory name, string memory surname, uint8  mark, string memory markl) {
+    (uint256 incidentTime, address owner, string memory name, string memory surname, uint8  mark, string memory markl, string memory hash) {
         checkAdminPermission();
         return (historyRecords[index].incidentTime, historyRecords[index].owner,
-                historyRecords[index].name, historyRecords[index].surname, historyRecords[index].mark, historyRecords[index].markl);
+                historyRecords[index].name, historyRecords[index].surname, historyRecords[index].mark, historyRecords[index].markl, historyRecords[index].hash);
     }
 
     struct HistoryRecord {
@@ -26,6 +26,7 @@ contract DiplomaService {
         string surname;
         uint8 mark;
         string markl;
+        string hash;
     }
 
     // utility functions
@@ -42,4 +43,3 @@ contract DiplomaService {
     }
 
 }
-
